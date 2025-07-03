@@ -1,0 +1,70 @@
+title: "Education & Learning Journey"
+subtitle: "My continuous path of learning and professional development"
+
+sections:
+  formalEducation:
+    title: "Formal Education"
+    items:
+      - degree: "Master of Computer Science"
+        institution: "Tech University"
+        period: "2017 - 2019"
+        badge: "GPA: 3.8/4.0"
+        badgeStyle: "bg-green-900 text-green-300"
+        description: "Specialized in Software Engineering and Data Structures. Completed thesis on \"Optimizing Database Performance in Large-Scale Web Applications.\""
+        skills:
+          - "Algorithms"
+          - "Database Systems"
+          - "Software Architecture"
+      - degree: "Bachelor of Computer Engineering"
+        institution: "State University"
+        period: "2013 - 2017"
+        badge: "Magna Cum Laude"
+        badgeStyle: "bg-blue-900 text-blue-300"
+        description: "Strong foundation in computer science fundamentals, mathematics, and engineering principles. Active member of the Programming Club and participated in multiple hackathons."
+        skills:
+          - "Data Structures"
+          - "Object-Oriented Programming"
+          - "Computer Networks"
+
+  certifications:
+    title: "Professional Certifications"
+    items:
+      - title: "AWS Solutions Architect"
+        organization: "Amazon Web Services"
+        year: "2023"
+        color: "text-orange-400"
+        description: "Professional-level certification demonstrating expertise in designing distributed applications on AWS."
+      - title: "Google Cloud Professional"
+        organization: "Google Cloud"
+        year: "2022"
+        color: "text-blue-400"
+        description: "Certified in designing, building, and managing cloud solutions on Google Cloud Platform."
+      - title: "React Developer Certification"
+        organization: "Meta"
+        year: "2021"
+        color: "text-cyan-400"
+        description: "Advanced certification covering React fundamentals, hooks, state management, and testing."
+      - title: "Kubernetes Administrator"
+        organization: "CNCF"
+        year: "2022"
+        color: "text-purple-400"
+        description: "Certified Kubernetes Administrator with expertise in cluster management and deployment."
+
+  continuousLearning:
+    title: "Continuous Learning"
+    goals:
+      - skill: "Machine Learning & AI"
+        progress: 75
+        progressColor: "bg-gradient-to-r from-cyan-500 to-purple-600"
+      - skill: "Blockchain Development"
+        progress: 50
+        progressColor: "bg-gradient-to-r from-green-400 to-cyan-500"
+      - skill: "System Design"
+        progress: 83
+        progressColor: "bg-gradient-to-r from-orange-400 to-red-500"
+
+styles:
+  educationCard: "bg-gray-800 rounded-lg shadow-sm border border-gray-700 p-6"
+  certificationCard: "bg-gray-800 rounded-lg shadow-sm border border-gray-700 p-6"
+  skillTag: "bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm"
+  learningCard: "bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg p-6 border border-gray-600"
