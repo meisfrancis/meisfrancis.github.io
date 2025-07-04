@@ -1,55 +1,23 @@
 
-import { useState, useEffect } from 'react';
-import { loadYamlFile } from '../utils/yamlLoader';
-import { BlogsData } from '../types/yaml';
+import { loadBlogPosts, getCategoryColor } from '../utils/dataLoader';
 
 const BlogsTab = () => {
-  const [data, setData] = useState<BlogsData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const blogsData = await loadYamlFile<BlogsData>('blogs');
-        setData(blogsData);
-      } catch (err) {
-        setError('Failed to load blogs data');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <div className="text-center text-white">Loading...</div>;
-  }
-
-  if (error || !data) {
-    return <div className="text-center text-red-500">{error || 'Failed to load data'}</div>;
-  }
-
-  const getCategoryColor = (category: string) => {
-    return data.categoryColors[category] || data.categoryColors.default;
-  };
+  const blogs = loadBlogPosts();
 
   return (
-    <div className="max-w-4xl mx-auto font-mono">
+    <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold text-white mb-4">{data.title}</h1>
+        <h1 className="text-3xl font-bold text-white mb-4">My Blog</h1>
         <p className="text-lg text-gray-300">
-          {data.subtitle}
+          Thoughts, tutorials, and insights about web development and technology
         </p>
       </div>
 
       <div className="space-y-8">
-        {data.blogs.map((blog) => (
+        {blogs.map((blog) => (
           <article
             key={blog.id}
-            className={data.styles.article}
+            className="bg-gray-800 rounded-lg shadow-sm border border-gray-700 p-6 hover:shadow-md hover:border-gray-600 transition-all duration-200"
           >
             <div className="flex items-center gap-4 mb-3">
               <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(blog.category)}`}>
@@ -59,25 +27,25 @@ const BlogsTab = () => {
               <span className="text-sm text-gray-400">•</span>
               <span className="text-sm text-gray-400">{blog.readTime}</span>
             </div>
-
-            <h2 className={data.styles.title}>
+            
+            <h2 className="text-xl font-semibold text-white mb-3 hover:text-cyan-400 cursor-pointer transition-colors">
               {blog.title}
             </h2>
-
-            <p className={data.styles.excerpt}>
+            
+            <p className="text-gray-300 leading-relaxed mb-4">
               {blog.excerpt}
             </p>
-
-            <button className={data.styles.readMoreButton}>
-              {data.buttons.readMore}
+            
+            <button className="text-cyan-400 hover:text-cyan-300 font-medium text-sm transition-colors">
+              Read more →
             </button>
           </article>
         ))}
       </div>
 
       <div className="text-center mt-12">
-        <button className={data.styles.loadMoreButton}>
-          {data.buttons.loadMore}
+        <button className="bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-colors duration-200">
+          Load More Articles
         </button>
       </div>
     </div>

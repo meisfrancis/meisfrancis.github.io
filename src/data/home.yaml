@@ -1,0 +1,65 @@
+profile:
+  name: "Huynh Phuoc Tan"
+  title: "(Architecture | Reliability | Study) Enthusiast"
+  initials: "o f m"
+  description: |
+    Yo! Those three words up there? Architecture, Reliability, and Study — they’re what I’m all about! I love how 
+    they can mix together in different ways. In short, I’m focused on enhancing the reliability of architecture, and
+    I’ve been at it for about four years now. It’s been a great journey, and I’m excited to keep exploring and learning! 
+
+skills:
+  - name: "K8s"
+    level: 80
+    color: "purple"
+  - name: "Terraform"
+    level: 80
+    color: "cyan"
+  - name: "MongoDB"
+    level: 80
+    color: "purple"
+  - name: "AWS"
+    level: 70
+    color: "cyan"
+  - name: "Grafana / Prometheus"
+    level: 60
+    color: "purple"
+  - name: "Python / Bash"
+    level: 60
+    color: "cyan"
+  - name: "Automation (CI/CD)"
+    level: 50
+    color: "purple"
+  - name: "Security"
+    level: 50
+    color: "cyan"
+
+experience:
+  - title: "Site Reliability Engineer"
+    period: "2022 - Present"
+    color: "purple"
+    description: |
+      Currently, I am growing as a Site Reliability Engineer, focusing on cloud infrastructure, system reliability, 
+      and operational excellence. I manage Kubernetes, Terraform, and AWS resources, optimize performance, reduce 
+      costs, and lead critical migrations while building automation to improve system observability and resilience.
+  
+  - title: "Senior Backend Software Engineer"
+    period: "2019 - 2021"
+    color: "green"
+    description: |
+      I transitioned into Backend Development, where I specialized in designing scalable API services, leading system
+      migrations from monoliths to microservices, and improving system reliability through best practices like TDD. I
+      also led backend teams and successfully delivered complex, high-performance systems across multiple industries.
+  
+  - title: "Frontend Developer"
+    company: "WebSolutions Ltd."
+    period: "2015 - 2018"
+    color: "cyan"
+    description: |
+      I started my career as a Frontend Developer, focusing on building web applications that enhance user 
+      experiences. I led frontend teams, introduced Agile practices, and developed real-time communication and 
+      appointment booking modules, laying a strong foundation in software development and team collaboration.
+
+styles:
+  gradient:
+    primary: "from-cyan-500 to-purple-600"
+    divider: "from-cyan-400 to-purple-500"

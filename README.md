@@ -1,59 +1,73 @@
-# meisfrancis.github.io
-# Portfolio Website with YAML Content Management
+# Welcome to your Lovable project
 
-This project is a portfolio website that uses YAML files as a database for text content. All text styling is defined inside the YAML files, and a coding font family is used throughout the project.
+## Project info
 
-## Project Structure
+**URL**: https://lovable.dev/projects/29f0bc4a-37d7-483e-896c-205f552084d8
 
-- `/databases`: Contains YAML files that store text content for the components
-- `/src/components`: Contains React components that render the content from YAML files
-- `/src/utils`: Contains utility functions for loading and parsing YAML files
-- `/src/types`: Contains TypeScript type definitions for the YAML data structures
+## How can I edit this code?
 
-## YAML Content Management
+There are several ways of editing your application.
 
-The project uses YAML files as a database for text content. Each component has its own YAML file in the `/databases` directory:
+**Use Lovable**
 
-- `home.yaml`: Content for the HomeTab component
-- `navigation.yaml`: Content for the Navigation component
-- `blogs.yaml`: Content for the BlogsTab component
-- `knowledge.yaml`: Content for the KnowledgeTab component
-- `links.yaml`: Content for the LinksTab component
+Simply visit the [Lovable Project](https://lovable.dev/projects/29f0bc4a-37d7-483e-896c-205f552084d8) and start prompting.
 
-## How It Works
+Changes made via Lovable will be committed automatically to this repo.
 
-1. YAML files are loaded using the `loadYamlFile` utility function in `/src/utils/yamlLoader.ts`
-2. Components use React hooks to fetch and display the content from YAML files
-3. TypeScript interfaces in `/src/types/yaml.ts` provide type safety for the YAML data
-4. The global font family is set to a monospace (coding) font in the Tailwind CSS configuration
+**Use your preferred IDE**
 
-## Development
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-To start the development server:
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-```bash
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-This will copy the YAML files to the public directory and start the development server.
+**Edit a file directly in GitHub**
 
-## Building for Production
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-To build the project for production:
+**Use GitHub Codespaces**
 
-```bash
-npm run build
-```
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-This will build the project and copy the YAML files to the dist directory.
+## What technologies are used for this project?
 
-## Adding or Modifying Content
+This project is built with:
 
-To add or modify content, simply edit the YAML files in the `/databases` directory. The changes will be reflected in the application after restarting the development server or rebuilding the project.
-
-## Dependencies
-
-- React
+- Vite
 - TypeScript
+- React
+- shadcn-ui
 - Tailwind CSS
-- js-yaml: For parsing YAML files
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/29f0bc4a-37d7-483e-896c-205f552084d8) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)

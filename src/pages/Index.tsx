@@ -10,18 +10,19 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
 
   const renderContent = () => {
-    switch (activeTab) {
-      case 'home':
-        return <HomeTab />;
-      case 'blogs':
-        return <BlogsTab />;
-      case 'knowledge':
-        return <KnowledgeTab />;
-      case 'links':
-        return <LinksTab />;
-      default:
-        return <HomeTab />;
-    }
+    // switch (activeTab) {
+    //   case 'home':
+    //     return <HomeTab />;
+    //   case 'blogs':
+    //     return <BlogsTab />;
+    //   case 'knowledge':
+    //     return <KnowledgeTab />;
+    //   case 'links':
+    //     return <LinksTab />;
+    //   default:
+    //     return <HomeTab />;
+    // }
+    return <HomeTab />
   };
 
   return (
