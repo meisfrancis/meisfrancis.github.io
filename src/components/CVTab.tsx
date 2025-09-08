@@ -1,7 +1,7 @@
 
 import { loadHomeData } from '../utils/dataLoader';
 
-const HomeTab = () => {
+const CVTab = (standalone: false) => {
   const data = loadHomeData();
   
   const getSkillColor = (color: string) => {
@@ -31,7 +31,7 @@ const HomeTab = () => {
     return colors[color] || "text-gray-400";
   };
 
-  return (
+  const cvContent = (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <div className={`w-32 h-32 rounded-full bg-gradient-to-br ${data.styles.gradient.primary} mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold`}>
@@ -83,7 +83,12 @@ const HomeTab = () => {
         </div>
       </div>
     </div>
+  )
+  return (
+    standalone ? <div className="min-h-screen bg-gray-900">
+      {cvContent}
+    </div> : {cvContent}
   );
 };
 
-export default HomeTab;
+export default CVTab;

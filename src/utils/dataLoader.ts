@@ -110,7 +110,7 @@ export interface LinksData {
   };
 }
 
-export interface BlogPost {
+export interface IPost {
   id: string;
   title: string;
   excerpt: string;
@@ -132,7 +132,7 @@ export const loadLinksData = (): LinksData => {
   return yaml.load(linksYaml) as LinksData;
 };
 
-export const loadBlogPosts = (): BlogPost[] => {
+export const loadBlogPosts = (): IPost[] => {
   const blogFiles = [
     { id: 'building-scalable-react', content: buildingScalableReactMd },
     { id: 'future-of-web-development', content: futureOfWebDevMd },
@@ -154,6 +154,19 @@ export const loadBlogPosts = (): BlogPost[] => {
     };
   });
 };
+
+export const loadMiscPost = (id: string, fileContent: never): IPost => {
+  const {data, content} = matter(fileContent)
+  return {
+    id: id,
+    title: data.title,
+    excerpt: data.excerpt,
+    date: data.date,
+    readTime: data.readTime,
+    category: data.category,
+    content,
+  };
+}
 
 export const getCategoryColor = (category: string): string => {
   const colors: { [key: string]: string } = {

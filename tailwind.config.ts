@@ -18,6 +18,15 @@ export default {
 			}
 		},
 		extend: {
+      typography: {
+        invert: {
+          css: {
+            // Custom dark mode prose styles if needed
+            '--tw-prose-links': 'theme(colors.blue.400)',
+            '--tw-prose-headings': 'theme(colors.white)',
+          }
+        }
+      },
 			fontFamily: {
 				'mono': ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
 			},
@@ -95,5 +104,8 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography")
+  ],
 } satisfies Config;

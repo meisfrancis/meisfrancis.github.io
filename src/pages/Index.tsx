@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import Navigation from '../components/Navigation';
-import HomeTab from '../components/HomeTab';
+import CVTab from '../components/CVTab.tsx';
 import BlogsTab from '../components/BlogsTab';
 import KnowledgeTab from '../components/KnowledgeTab';
 import LinksTab from '../components/LinksTab';
@@ -22,12 +22,16 @@ const Index = () => {
     //   default:
     //     return <HomeTab />;
     // }
-    return <HomeTab />
+    return (
+      <div className="text-amber-100">
+        hello, my name is francis. you're seeing my own domain. everything here is still in development!
+      </div>
+    )
   };
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
+      {/*<Navigation activeTab={activeTab} onTabChange={setActiveTab} />*/}
       <main className="py-12 px-4">
         {renderContent()}
       </main>
