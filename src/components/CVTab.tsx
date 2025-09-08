@@ -1,7 +1,8 @@
 
 import { loadHomeData } from '../utils/dataLoader';
+import React from 'react';
 
-const CVTab = (standalone: false) => {
+const CVTab: React.FC<{standalone:boolean}> = ({standalone}) => {
   const data = loadHomeData();
   
   const getSkillColor = (color: string) => {
@@ -87,7 +88,9 @@ const CVTab = (standalone: false) => {
   return (
     standalone ? <div className="min-h-screen bg-gray-900">
       {cvContent}
-    </div> : {cvContent}
+    </div> : <div>
+      {cvContent}
+    </div>
   );
 };
 

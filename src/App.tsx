@@ -18,8 +18,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/noi-quy-cau-long" element={<MiscPage filename="noi-quy-cau-long" />} />
-          <Route path="/cv" element={<CVTab />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
