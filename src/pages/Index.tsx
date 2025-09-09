@@ -7,6 +7,7 @@ import KnowledgeTab from '../components/KnowledgeTab';
 import LinksTab from '../components/LinksTab';
 import {useParams, useSearchParams} from 'react-router-dom';
 import MiscPage from '@/components/MiscPage.tsx';
+import LandingPagePianoEvent from '@/components/custom/landing-page-piano-event.tsx';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -18,7 +19,9 @@ const Index = () => {
       case 'cv':
         return <CVTab standalone={true} />
       case 'noi-quy-cau-long':
-        return <MiscPage filename="noi-quy-cau-long" />
+        return <MiscPage filename="noi-quy-cau-long" title="Nội Quy Cầu Lông" />
+      case 'piano-event':
+        return <LandingPagePianoEvent title="Music Time Center ~ Autumn Rhythm Show"/>
       // case 'blogs':
       //   return <BlogsTab />;
       // case 'knowledge':

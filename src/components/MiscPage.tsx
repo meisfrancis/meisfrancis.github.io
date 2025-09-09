@@ -5,9 +5,10 @@ import remarkGfm from 'remark-gfm';
 
 interface MiscPageProps {
   filename: string;
+  title: string;
 }
 
-const MiscPage: React.FC<MiscPageProps> = ({filename}) => {
+const MiscPage: React.FC<MiscPageProps> = ({filename, title}) => {
   const [post, setPost] = useState<IPost>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,9 +30,9 @@ const MiscPage: React.FC<MiscPageProps> = ({filename}) => {
         setLoading(false);
       }
     };
-
+    document.title = title
     loadFile();
-  }, [filename]);
+  }, [filename, title]);
 
   if (loading) {
     return (
