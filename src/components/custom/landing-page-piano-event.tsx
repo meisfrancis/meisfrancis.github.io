@@ -16,11 +16,78 @@ const LandingPagePianoEvent: React.FC<LandingPagePianoEventProps> = ({
   ]
   document.title = title
 
-  // Update favicon when component mounts and restore when unmounts
+  // Update favicon and meta tags when component mounts and restore when unmounts
   useEffect(() => {
+    // Store original meta tags
+    const originalTitle = document.title;
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+    const originalKeywords = document.querySelector('meta[name="keywords"]')?.getAttribute('content') || '';
+
     // Store the original favicon
     const originalFavicon = document.querySelector('link[rel="icon"]') || document.querySelector('link[rel="shortcut icon"]');
     const originalHref = originalFavicon ? originalFavicon.getAttribute('href') : '/favicon.ico';
+
+    // Update title for SEO
+    document.title = 'Music Time Center - Autumn Rhythm Piano Show | Piano Performance Event';
+
+    // Update or create meta description
+    let descriptionMeta = document.querySelector('meta[name="description"]') as HTMLMetaElement;
+    if (!descriptionMeta) {
+      descriptionMeta = document.createElement('meta');
+      descriptionMeta.name = 'description';
+      document.head.appendChild(descriptionMeta);
+    }
+    descriptionMeta.content = 'Music Time Center presents Autumn Rhythm - Piano performance event for students. Join us for a special piano recital showcasing talented young musicians.';
+
+    // Update or create meta keywords
+    let keywordsMeta = document.querySelector('meta[name="keywords"]') as HTMLMetaElement;
+    if (!keywordsMeta) {
+      keywordsMeta = document.createElement('meta');
+      keywordsMeta.name = 'keywords';
+      document.head.appendChild(keywordsMeta);
+    }
+    keywordsMeta.content = 'musictime center, music time center, musictimecenter, autumn rhythm, piano performance, piano recital, music school, piano lessons, student performance, music event';
+
+    // Create Open Graph meta tags for social media
+    const ogTags = [
+      { property: 'og:title', content: 'Music Time Center - Autumn Rhythm Piano Show' },
+      { property: 'og:description', content: 'Join us for a special piano performance event featuring talented young musicians at Music Time Center.' },
+      { property: 'og:type', content: 'event' },
+      { property: 'og:url', content: 'https://francisiz.me/?misc=piano-event' },
+      { property: 'og:site_name', content: 'Music Time Center' },
+      { property: 'og:locale', content: 'vi_VN' }
+    ];
+
+    const createdOgTags: HTMLMetaElement[] = [];
+    ogTags.forEach(tag => {
+      let ogMeta = document.querySelector(`meta[property="${tag.property}"]`) as HTMLMetaElement;
+      if (!ogMeta) {
+        ogMeta = document.createElement('meta');
+        ogMeta.setAttribute('property', tag.property);
+        document.head.appendChild(ogMeta);
+        createdOgTags.push(ogMeta);
+      }
+      ogMeta.content = tag.content;
+    });
+
+    // Create additional SEO meta tags
+    const additionalTags = [
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'Music Time Center' },
+      { name: 'theme-color', content: '#1f2937' }
+    ];
+
+    const createdAdditionalTags: HTMLMetaElement[] = [];
+    additionalTags.forEach(tag => {
+      let meta = document.querySelector(`meta[name="${tag.name}"]`) as HTMLMetaElement;
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = tag.name;
+        document.head.appendChild(meta);
+        createdAdditionalTags.push(meta);
+      }
+      meta.content = tag.content;
+    });
 
     // Create or update favicon link
     let faviconLink = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
@@ -34,8 +101,36 @@ const LandingPagePianoEvent: React.FC<LandingPagePianoEventProps> = ({
     faviconLink.href = './custom/landing-page-piano-event/musictime-logo-no-bg.png';
     faviconLink.type = 'image/png';
 
-    // Cleanup function to restore original favicon
+    // Cleanup function to restore original meta tags and favicon
     return () => {
+      // Restore original title
+      document.title = originalTitle;
+
+      // Restore original description
+      if (descriptionMeta) {
+        descriptionMeta.content = originalDescription;
+      }
+
+      // Restore original keywords
+      if (keywordsMeta) {
+        keywordsMeta.content = originalKeywords;
+      }
+
+      // Remove created Open Graph tags
+      createdOgTags.forEach(tag => {
+        if (tag.parentNode) {
+          tag.parentNode.removeChild(tag);
+        }
+      });
+
+      // Remove created additional tags
+      createdAdditionalTags.forEach(tag => {
+        if (tag.parentNode) {
+          tag.parentNode.removeChild(tag);
+        }
+      });
+
+      // Restore original favicon
       if (faviconLink) {
         faviconLink.href = originalHref;
         faviconLink.type = 'image/x-icon';
